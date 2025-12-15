@@ -11,3 +11,5 @@ function PowerOfTwo(n){
 return true
 }
 
+//Big o = O(logn)
+
