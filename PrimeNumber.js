@@ -9,3 +9,7 @@ function Prime(n){
     }
     return true
 }
+
+console.log(Prime(40))
+
+//Big O = O(n)

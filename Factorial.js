@@ -7,3 +7,5 @@ function fact(n){
 }
 
 console.log(fact(5))
+
+//Big O = O(n)
