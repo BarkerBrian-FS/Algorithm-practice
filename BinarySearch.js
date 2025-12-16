@@ -16,3 +16,5 @@ function binarySearch(arr, target){
     }
     return -1
 }
+
+// Big O = O(logn)
