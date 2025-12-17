@@ -11,3 +11,5 @@ function cartesianProduct(arr1, arr2){
 const arr1 = [1,2];
 const arr2 = [3, 4, 5];
 console.log(cartesianProduct(arr1,arr2));
+
+// Big O = O(mn)
