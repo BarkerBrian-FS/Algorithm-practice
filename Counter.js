@@ -1,3 +1,4 @@
+// Counter problem 
 let createCounter = function(n){
     return function(){
         return n++
@@ -5,3 +6,4 @@ let createCounter = function(n){
 }
 
 const counter = createCounter(10)
+
