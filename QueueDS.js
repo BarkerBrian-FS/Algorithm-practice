@@ -21,3 +21,6 @@ class Queue {
         console.log(this.items.toString())
     }
 }
+
+//Queue optimized
+
