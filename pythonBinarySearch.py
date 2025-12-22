@@ -11,5 +11,12 @@ def binary_search(list, target):
             first = midpoint+1
         else:
             last = midpoint -1 
-            
+
     return None
+
+
+def Verify (index):
+    if index is not None:
+        print("Target found at index:", index)
+    else:
+        print("Target not found in list")
