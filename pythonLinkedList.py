@@ -96,6 +96,11 @@ class linkedList:
         
 
     def remove(self, key):
+        """
+        Removes node containing data that matches the key
+        Returns the node or None if it doesn's exist 
+        Takes O(n) or Linear time
+        """
         current  = self.head
         previous = None
         found = False
@@ -111,6 +116,7 @@ class linkedList:
                 previous = current
                 current = current.next_node
 
+        return current
 
         
 
