@@ -1,6 +1,5 @@
 class Node:
     """
-    Docstring for Node
     An object for storing a single node of a linked list
     Models two attributes -data and the link to next node in the list
     """
@@ -13,6 +12,10 @@ class Node:
 
 
     def __repr__(self):
+        """
+        Return a string representation of the list
+        Takes O(n) time
+        """
         return "<Node data: %s>" %self.data
     
 class linkedList:
@@ -42,11 +45,14 @@ class linkedList:
         return count
     """
     def add adds new node containing data at the head of the list
+    This method is constant time or O(1)
     """
     def add(self, data):
         new_node = Node(data)
         new_node.next_node = self.head
         self.head = new_node
+
+    
 
         
 
