@@ -71,4 +71,16 @@ function logScale(data, base) {
     return data.map(num => Math.log(num) / Math.log(base));
 }
 
+// average followers algorithm
+function averageFollowers(nums){
+    if (nums.length === 0){
+        return None
+    }
+    let sum = 0;
+    for (let num of nums){
+        sum += num
+    }
+    let average  = sum / nums.length
+    return average
+}
 
