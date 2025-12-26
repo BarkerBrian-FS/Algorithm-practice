@@ -47,3 +47,10 @@ function getInfluencerScore(followerCount, averageEngagement) {
     }
     return averageEngagement * Math.log2(followerCount);
 }
+
+// decayed followers algorithm can use Math.pow for remaining total (base, exponent) or **
+function decayedFollowers(initialFollower, fractionLostDaily, time){
+    retentionRate = 1 - fractionLostDaily
+    remainingTotal = initialFollower *(retentionRate ** time)
+    return remainingTotal
+}
