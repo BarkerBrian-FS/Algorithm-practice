@@ -56,15 +56,19 @@ function decayedFollowers(initialFollower, fractionLostDaily, time){
 }
 
 // log scale problem practice
-
+// division in push method changes num to the base provided
 function logScale(data, base){
     let result = [];
     for (let i=0; i<data.length; i++){
         let num = data[i];
         result.push(Math.log(num) /  Math.log(base))
-        
     }
     return result
+}
+
+// map method variant
+function logScale(data, base) {
+    return data.map(num => Math.log(num) / Math.log(base));
 }
 
 
