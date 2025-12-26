@@ -29,3 +29,21 @@ function get_estimated_spread(audiences_followers){
         let estimated_spread = average_audience_followers * (audiences_followers.length ** 1.2)
         return estimated_spread
 }
+
+// follower count algorithm practice
+def get_follower_prediction(follower_count, influencer_type, num_months):
+    if influencer_type == 'fitness':
+        return follower_count * 4 ** num_months
+    elif influencer_type == "cosmetic":
+        return follower_count * 3 ** num_months
+    else:
+        return follower_count * 2 ** num_months
+
+function getFollowerCount(follower_count, influencer_type, num_months){
+    if (influencer_type == 'fitness'){
+        return follower_count * 4 ** num_months}
+    else if (influencer_type == "cosmetic"){
+        return follower_count * 3 ** num_months}
+    else{
+        return follower_count * 2 ** num_months}
+}
