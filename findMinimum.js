@@ -31,14 +31,6 @@ function get_estimated_spread(audiences_followers){
 }
 
 // follower count algorithm practice
-def get_follower_prediction(follower_count, influencer_type, num_months):
-    if influencer_type == 'fitness':
-        return follower_count * 4 ** num_months
-    elif influencer_type == "cosmetic":
-        return follower_count * 3 ** num_months
-    else:
-        return follower_count * 2 ** num_months
-
 function getFollowerCount(follower_count, influencer_type, num_months){
     if (influencer_type == 'fitness'){
         return follower_count * 4 ** num_months}
@@ -46,4 +38,12 @@ function getFollowerCount(follower_count, influencer_type, num_months){
         return follower_count * 3 ** num_months}
     else{
         return follower_count * 2 ** num_months}
+}
+
+//Logarithm practice get influencer score
+function getInfluencerScore(followerCount, averageEngagement) {
+    if (followerCount <= 0) {
+        return 0; // avoid errors with log(0) or negative numbers
+    }
+    return averageEngagement * Math.log2(followerCount);
 }
