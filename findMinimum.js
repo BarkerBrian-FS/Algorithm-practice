@@ -121,3 +121,17 @@ function averageFollowers(nums){
     return average
 }
 
+
+
+// average brand followers algorithm O(nm)
+function getAvgBrandFollowers( allHandles, brandName){
+    let totalMatches = 0
+    for (let influencerHandles of allHandles){
+        for(let handle of influencerHandles){
+            if (handle.includes(brandName)){
+                totalMatches ++;
+            }
+        }
+    }
+    return Number((totalMatches / allHandles.length).toFixed(2));
+}
