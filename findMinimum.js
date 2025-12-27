@@ -1,3 +1,16 @@
+/*
+O(1) - constant
+O(log n) - logarithmic
+O(n) - linear
+O(n^2) - squared
+O(2^n) - exponential
+O(n!) - factorial
+*/
+
+
+
+
+
 function findMinimum(nums) {
   if (nums.length === 0) {
     return null;
