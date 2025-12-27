@@ -40,6 +40,18 @@ function find_max(nums){
     return max_val
 }
 
+// O(n^2) first last name algorithm
+function does_name_exist(first_names, last_names, full_name){
+    for (let first of first_names){
+        for (let last of last_names){
+            if (`${first} ${last}`  == full_name){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 //audience followers practice
 
 function get_estimated_spread(audiences_followers){
