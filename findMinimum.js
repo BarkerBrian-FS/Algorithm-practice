@@ -27,6 +27,18 @@ function findMinimum(nums) {
   return minimum;
 }
 
+// find max value algorithm
+
+function find_max(nums){
+    let max_val = -Infinity;
+
+    for (let num of nums){
+        if (num > max_val){
+            max_val = num
+        }
+    }
+    return max_val
+}
 
 //audience followers practice
 
