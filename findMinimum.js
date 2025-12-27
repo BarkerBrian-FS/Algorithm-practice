@@ -135,3 +135,16 @@ function getAvgBrandFollowers( allHandles, brandName){
     }
     return Number((totalMatches / allHandles.length).toFixed(2));
 }
+
+// count names iterates over names in nested list and returns count of targetName 
+function countName(listOfLists, targetName){
+    let count = 0;
+    for (let subList of listOfLists){
+        for(let name of subList){
+            if (name === targetName){
+                count += 1
+            }
+        }
+    }
+    return count
+}
