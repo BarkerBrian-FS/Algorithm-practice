@@ -7,10 +7,6 @@ O(2^n) - exponential
 O(n!) - factorial
 */
 
-
-
-
-
 function findMinimum(nums) {
   if (nums.length === 0) {
     return null;
@@ -148,3 +144,7 @@ function countName(listOfLists, targetName){
     }
     return count
 }
+
+
+
+
