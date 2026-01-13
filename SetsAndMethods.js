@@ -19,3 +19,16 @@ if (numbers.has(2)) {
 numbers.delete(2);
 
 // JavaScript `Set` uses `.add()`, `.has()`, and `.delete()`.
+
+let a = new Set([1, 2, 3]);
+let b = new Set([2, 3, 4]);
+//Union
+let union = new Set ([...a,...b]);
+console.log(union);  // Set {1, 2, 3, 4}
+
+//Intersection
+let intersection = new Set ([...a].filter(x => b.has(x)));
+console.log(intersection);  // Set {2, 3}
+
+let difference = new Set([...a].filter(x => !b.has(x)));
+console.log(difference);  // Set {1}
