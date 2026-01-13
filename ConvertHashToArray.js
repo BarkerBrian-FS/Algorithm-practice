@@ -36,3 +36,13 @@ phoneBook.delete("Carol");
 
 // Get with default
 let number = phoneBook.get("Dave") || "Not found";
+
+// Iterate over key-value pairs
+for (let [name, number] of phoneBook) {
+    console.log(`${name}: ${number}`);
+}
+
+// Or use forEach
+phoneBook.forEach((number, name) => {
+    console.log(`${name}: ${number}`);
+});
