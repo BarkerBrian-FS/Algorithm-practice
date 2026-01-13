@@ -16,3 +16,16 @@ function findDuplicates(arr){
     }
     return Array.from(duplicates).sort((a,b)=> a-b)
 }
+
+//Given an array of integers, determine if it contains any duplicate values. Return true if at least one value appears more than once, false otherwise.
+
+function duplicatesExsist(nums){
+    const seen = new Set(nums);
+    for (let num of nums){
+       if(seen.has(num)){
+        return true
+       }
+       seen.add(num)
+    }
+    return false
+}
