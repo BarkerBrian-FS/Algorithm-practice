@@ -1,8 +1,9 @@
-/*
+/* 
 Given a string, return a new string with characters sorted by their frequency. 
 Characters that appear more frequently should come first. When two characters have the same frequency, 
 sort them alphabetically.
 */
+
 
 function sortByFrequency(s){
     //Count Freq of characters
