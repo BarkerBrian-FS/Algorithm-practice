@@ -16,7 +16,7 @@ function largestNumberFromArray(nums){
         // when return neg num a comes before b
         if(order1 > order2) return -1
         // when return pos num b before a
-        if(order2 > order1) return 1
+        if(order1 < order2) return 1
         return 0
     });
     // handle edge cases for zeros
