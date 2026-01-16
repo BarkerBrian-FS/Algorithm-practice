@@ -21,5 +21,31 @@ let twoSumOpt = function(nums, target){
     }
 }
 
+// Two Sum Sorted
 
+function twoSumSorted(arr, target){
+    //set left pointer to first index
+    let l = 0;
+    //set right to last index
+    let r = arr.length -1;
+    // while l < r move through array 
+    while(l < r){
+        // set twosum to sum of l and r
+        const twoSum = arr[l] + arr[r];
+        //check if two sum is target
+        if (twoSum === target){
+            //return l and r 
+            return [l ,r];
+        } 
+        //check if less than target
+        if(twoSum < target){
+            //move left further down
+            l++
+            //if greate than target sub r
+        }else {
+            r--
+        }
+    }
+    return []
+}
 
