@@ -41,7 +41,7 @@ function twoSumSorted(arr, target){
         if(twoSum < target){
             //move left further down
             l++
-            //if greate than target sub r
+            //if greater than target sub r
         }else {
             r--
         }
