@@ -49,3 +49,26 @@ function twoSumSorted(arr, target){
     return []
 }
 
+//TwoSum using map 
+
+function twoSum(nums, target){
+    
+    //map to store number
+    const numToIndex = new Map();
+
+    //Iterate though the array with index and value
+    for(let i= 0; i < nums.length; i++){
+        const num = nums[i];
+        const complement = target - num;
+
+        //Check if complement exists in map 
+        if(numToIndex.has(complement)){
+        
+        return [numToIndex.get(complement, i)]
+    }
+    //store current number and index for future lookup
+    numToIndex.set(num, i);
+
+    }
+}
+
