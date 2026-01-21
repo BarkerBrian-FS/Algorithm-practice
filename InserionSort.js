@@ -34,3 +34,35 @@ function insertionSort(nums) {
     }
     return nums;
 }
+
+//Insertion sort practice
+
+function sortList(unsortedList){
+    for(let i =0; i < unsortedList.length; i++){
+        let current = i;
+        while(current > 0 && unsortedList[current] < unsortedList[current-1]){
+            const temp = unsortedList[current];
+
+           [unsortedList[current], unsortedList[current - 1]] =
+           [unsortedList[current - 1], unsortedList[current]];
+            current--
+        }
+    }
+    return unsortedList
+}
+
+//temp shift insertion sort
+
+function tempList(arr){
+    for(let i=0; i < arr.length; i++){
+        const temp = arr[i]
+        let j = i-1
+
+        while(j >= 0 && arr[j] > temp){
+            arr[j+1] = arr[j];
+            j--;
+        }
+        arr[j+1] = temp
+    }
+    return arr;
+}
