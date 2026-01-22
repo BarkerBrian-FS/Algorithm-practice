@@ -42,3 +42,21 @@ function bubbleSort(nums){
     }
     return nums
 }
+
+//bubble sort practice
+
+function sortList(unsortList){
+    let n = unsortList.length
+    
+    for(let i =n-1; i >= 0 ; i--){
+        let swapped = false;
+        for(let j = 0; j < i; j++){
+            if(unsortList[j] > unsortList[j+1]){
+                [unsortList[j], unsortList[j+1]] = [unsortList[j+1], unsortList[j]]
+                swapped = true
+            }
+        }
+        if(!swapped) return unsortList
+    }
+    return unsortList
+}
