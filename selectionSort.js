@@ -20,3 +20,20 @@ function selectionSort(nums) {
 
     return nums;
 }
+
+//selection sort practice
+
+function sortList(unsortedList){
+    const n = unsortedList.length;
+    for(let i=0; i < n; i++){
+        let min = i;
+
+        for(let j=i; j<n; j++){
+            if(unsortedList[j] < unsortedList[min]){
+                min = j
+            }
+        }
+        [unsortedList[i], unsortedList[min]] = [unsortedList[min], unsortedList[i]]
+    }
+    return unsortedList
+}
