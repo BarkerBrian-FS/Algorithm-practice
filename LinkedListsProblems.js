@@ -57,3 +57,39 @@ function middleOfList(head){
     }
     return slow.val;
 }
+
+/*
+Determine whether a string is a palindrome, ignoring non-alphanumeric characters and case. Examples:
+
+Input: Do geese see God? Output: True
+
+Input: Was it a car or a cat I saw? Output: True
+
+Input: A brown fox jumping over Output: False
+
+Valid Palindrome ignore alphanumeric
+*/
+function alphanumeric(c){
+    return /^[a-zA-Z0-9]*$/.test(c);
+}
+
+function isPalindrome(s) {
+    let l = 0;
+    let r = s.length - 1;
+    while (l < r) {
+        // Note 1, 2
+        while (l < r && !isAlphaNumeric(s.charAt(l))) {
+            l++;
+        }
+        while (l < r && !isAlphaNumeric(s.charAt(r))) {
+            r--;
+        }
+        // ignore case
+        if (s.charAt(l).toLowerCase() !== s.charAt(r).toLowerCase()) {
+            return false;
+        }
+        l++;
+        r--;
+    }
+    return true;
+}
