@@ -46,3 +46,19 @@ class EOFError extends Error {}
         gen.throw(new EOFError());
     });
 }
+
+//two pointers sliding window 
+function longestSubStringWithouRepeat(s){
+    let longest = 0;
+    let window = new Set();
+    let l = 0;
+    for(let right = 0; righ<s.length; ++right){
+        while(window.has(s[right])){
+            window.delete(s[l])
+            ++l
+        }
+        window.add(s[right])
+        longest = Math.max(longest, right-l+1)
+    }
+    return longest
+}
