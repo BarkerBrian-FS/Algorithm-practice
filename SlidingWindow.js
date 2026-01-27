@@ -21,3 +21,24 @@ function subArraySumFixed(nums, k){
     }
     return largest
 }
+
+/*
+Recall finding the largest size k subarray sum of an integer array in Largest Subarray Sum. 
+What if we don't need the largest sum among all subarrays of fixed size k, but instead, 
+we want to find the length of the longest subarray with sum smaller than or equal to a target?
+LONGEST SUB ARRAY 
+*/
+function subarraySumLongest(nums, target){
+    let windowSum = 0;
+    let length = 0;
+    let left = 0
+    for(let right=0; right < nums.length; right++){
+        widowSum += nums[right];
+        while(windowSum > target){
+            windowSum -= nums[left];
+            ++left;
+        }
+        length = Math.max(length, right-left+1);
+    }
+    return length;
+}
