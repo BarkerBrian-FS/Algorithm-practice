@@ -45,3 +45,15 @@ function removeNthNode(head, n) {
 
     return head;
 }
+
+
+//find the middle of linked list
+function middleOfList(head){
+    let slow = head;
+    let fast = head;
+    while(fast && fast.next){
+        fast = fast.next.next;
+        slow = slow.next;
+    }
+    return slow.val;
+}
