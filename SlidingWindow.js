@@ -12,7 +12,7 @@ function subArraySumFixed(nums, k){
     for(let i=0; i<k; i++){
         widowSum += nums[i];
     }
-    let larget = windowSum;
+    let largest = windowSum;
     for(let right = k; right < nums.length; ++right){
         const left = right - k;
         windowSum -= nums[left];
@@ -41,4 +41,33 @@ function subarraySumLongest(nums, target){
         length = Math.max(length, right-left+1);
     }
     return length;
+}
+
+
+/*
+Longest Substring without Repeating Characters
+Find the length of the longest substring of a given string without repeating characters.
+*/
+
+function longestSubstringWithoutRepeat(s){
+    //instantiate longest variable to compare
+    let longest = 0;
+    //make window 
+    const window = new Set();
+    //make left pointer
+    let l = 0;
+    //move the window
+    for(let right = 0; right<s.length; ++right){
+        //check and see if window has right index
+        while(window.has(s[right])){
+            //if present delete the left one 
+            window.delete(s[l])
+        }
+        //if not present add the right
+        window.add(s[right]);
+        //compare to see if it is the longest substring without repeat
+        longest = Math.max(longest, right - l + 1)
+    }
+    //return answer
+    return longest
 }
