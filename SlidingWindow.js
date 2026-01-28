@@ -41,7 +41,7 @@ function subarraySumLongest(nums, target){
     let length = 0;
     let left = 0
     for(let right=0; right < nums.length; right++){
-        widowSum += nums[right];
+        windowSum += nums[right];
         while(windowSum > target){
             windowSum -= nums[left];
             ++left;
@@ -78,4 +78,38 @@ function longestSubstringWithoutRepeat(s){
     }
     //return answer
     return longest
+}
+
+/*
+Let's continue on finding the sum of subarrays. 
+This time given a positive integer array nums, 
+we want to find the length of the shortest subarray such that the subarray sum is at least target. 
+Recall the same example with input nums = [1, 4, 1, 7, 3, 0, 2, 5] and target = 10, 
+then the smallest window with the sum >= 10 is [7, 3] with length 2. So the output is 2.
+Flexible size sliding window
+*/
+function subArraySumShortest(nums, target){
+    //make window sum variable
+    let windowSum = 0;
+    //start with +1 so that it is larger than any subarray possibility
+    let length = nums.length+1;
+    //make the left pointer at the beginning 
+    let left = 0;
+    //start moving thorough the array
+    for(let right = 0; right < nums.length; right++){
+        //add right index to sum
+        windowSum += nums[right];
+        while(windowSum >= target){
+            //update length if window is smaller than previous sum
+            length = Math.min(length, right - left+1)
+            //shring window from the left looking for shorte sub array
+            left ++
+        }
+    }
+    //if length never update so subarray meet requirement
+    if(length> nums.length){
+        return 0;
+    }
+    //return shortest with sum >= target
+    return length;
 }
