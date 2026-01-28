@@ -8,15 +8,23 @@ FIXED SLIDING WINDOW
 */
 
 function subArraySumFixed(nums, k){
+
     let windowSum = 0;
+    //loop through first k elements
     for(let i=0; i<k; i++){
-        widowSum += nums[i];
+        //add all elements for the sum
+        windowSum += nums[i];
     }
     let largest = windowSum;
+    //slide the window through the rest of the array 
     for(let right = k; right < nums.length; ++right){
+        //left is always k positions from the right 
         const left = right - k;
+        //substract what leaves the window
         windowSum -= nums[left];
+        //add what enters the window
         windowSum += nums[right];
+        //compare and change largest
         largest = Math.max(largest, windowSum)
     }
     return largest
