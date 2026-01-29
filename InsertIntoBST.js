@@ -6,6 +6,21 @@ class Node{
         this.right = right;
     }
 }
+
+function find(tree, val){
+    //if tree empty return false
+    if(tree == null) return false;
+    //if value found in tree return true
+    if(tree.val === val) return true;
+    //if tree val less than val move right
+    else if(tree.val < val){
+        return find(tree.right, val)
+        //if tree val greater than val move left
+    } else{
+        return find(tree.left, val)
+    }
+}
+
 //inserts into BST using recursion
 function insertIntoBST(bst, val){
     //check if bst is null and return node
