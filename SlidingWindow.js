@@ -169,15 +169,24 @@ Return the start and end indices of the subarray.
 PREFIX SUM
 */
 function subArraySum(arr, target){
+    //initiate map to hold sum and index
     const prefixSum = new Map([0,0]);
+    //make curSum to store current sum of all indexes
     let curSum = 0;
+    //loop through the array
     for(let i=0; i < arr.length; i++){
+        //add each index to the sum while moving 
         curSum += arr[i];
+        //subtract current sum from target to see what is needed
         const complement = curSum - target;
+        //check map to find complement
         if(prefixSum.has(complement)){
+            //return complement and index + 1
             return [prefixSum.get(complement), i+1];
         }
+        // set the current sum and index to the map
         prefixSum.set(curSum, i+1)
     }
+    //return empty array if no answer found
     return []
 }
