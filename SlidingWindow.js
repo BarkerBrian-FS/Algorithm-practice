@@ -162,3 +162,22 @@ function leastConsecutiveCardsToMatch(cards) {
     //if shortest updated return length if no duplicates return -1
     return shortest !== cards.length + 1 ? shortest : -1;
 }
+
+/*
+Given an array of integers arr and a target value, find a subarray that sums to the target. 
+Return the start and end indices of the subarray.
+PREFIX SUM
+*/
+function subArraySum(arr, target){
+    const prefixSum = new Map([0,0]);
+    let curSum = 0;
+    for(let i=0; i < arr.length; i++){
+        curSum += arr[i];
+        const complement = curSum - target;
+        if(prefixSum.has(complement)){
+            return [prefixSum.get(complement), i+1];
+        }
+        prefixSum.set(curSum, i+1)
+    }
+    return []
+}
