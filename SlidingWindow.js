@@ -87,6 +87,21 @@ we want to find the length of the shortest subarray such that the subarray sum i
 Recall the same example with input nums = [1, 4, 1, 7, 3, 0, 2, 5] and target = 10, 
 then the smallest window with the sum >= 10 is [7, 3] with length 2. So the output is 2.
 Flexible size sliding window
+
+function slidingWindowFlexibleShortest(input) {
+    initialize window, ans
+    var left = 0;
+    for (var right = 0; right < input.length; ++right) {
+        append input[right] to window
+        while (valid(window)) {
+            ans = min(ans, window);   // window is guaranteed to be valid here
+            remove input[left] from window
+            ++left;
+        }
+    }
+    return ans;
+}
+
 */
 function subArraySumShortest(nums, target){
     //make window sum variable
@@ -112,4 +127,38 @@ function subArraySumShortest(nums, target){
     }
     //return shortest with sum >= target
     return length;
+}
+
+/*
+A bunch of cards is laid out in front of you in a line, 
+where the value of each card ranges from 0 to 10^6. 
+A pair of cards is matching if they have the same number value.
+Given a list of integers cards, your goal is to match a pair of cards, 
+but you can only pick up cards in a consecutive manner. 
+What's the minimum number of cards that you need to pick up to make a pair? 
+If there are no matching pairs, return -1.
+*/
+
+function leastConsecutiveCardsToMatch(cards) {
+    //make new map
+    const window = new Map();
+    //create left pointer
+    let left = 0;
+    //make shortest to compare later
+    let shortest = cards.length + 1;
+    //move through cards
+    for (let right = 0; right < cards.length; ++right) {
+        //if card new make zero if present add 1
+        window.set(cards[right], (window.get(cards[right]) ?? 0) + 1);
+        //once match is found 
+        while (window.get(cards[right]) === 2) {
+            //shrink from left to make as short as possible update shortest window
+            shortest = Math.min(shortest, right - left + 1);
+            //remove left most card from window
+            window.set(cards[left], window.get(cards[left]) - 1);
+            ++left;
+        }
+    }
+    //if shortest updated return length if no duplicates return -1
+    return shortest !== cards.length + 1 ? shortest : -1;
 }
