@@ -93,3 +93,15 @@ function isPalindrome(s) {
     }
     return true;
 }
+
+//Finding a Cycle Linked List Tortoise and Hare
+
+function hasCycle(nodes){
+    let tortoise = nextNode(nodes);
+    let hare = nextNode(nextNode(nodes));
+    while(tortoise !== hare && hare.next !== null){
+        tortoise = nextNode(tortoise);
+        hare = nextNode(nextNode(hare))
+    }
+    return hare.next!==null;
+}
