@@ -39,3 +39,17 @@ function binarySearch(names, target) {
 
 // 1000 names: ~10 comparisons
 // 1 million names: ~20 comparisons
+
+
+//Valid Binary Search Tree
+
+function validBst(root){
+    function dfs(root, minVal, maxVal){
+        if(!root) return true;
+
+        if(!(minVal < root.val && root.val < maxVal)) return false;
+
+        return dfs(root.left, minVal, root.val) && dfs(root.right, root.val, maxVal);
+    }
+    return dfs(root, Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY)
+}
