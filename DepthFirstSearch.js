@@ -66,3 +66,45 @@ function dfs(root, maxSoFar){
 function visibleTreeNode(root){
     return dfs(root, Number.NEGATIVE_INFINITY)
 }
+
+// Balance Binary Tree
+
+function check(node){
+    // empty trees are balanced height is -1 so leaf node has height 0
+    if(node === null) return[true, -1];
+    //checks left subtree balance and gets height
+    const [leftOk, leftH] = check(node.left);
+    //check right subtree is balance and gets height
+    const [rightOk, rightH] = check(node.right);
+    // left and right balanced height difference at most 1
+    const balanced = leftOk && rightOk && Math.abs(leftH-rightH) <= 1;
+    //height of current node is tallest child +1
+    return [balanced, Math.max(leftH, rightH)+ 1]
+}
+
+function isBalance(tree){
+    return check(tree)[0];
+}
+
+//Subtree of another tree
+
+function isSameTree(tree1, tree2){
+    if(!tree1 && !tree2) return true;
+    if(!tree1 || !tree2) return false;
+    return tree1.val === tree2.val && isSameTree(tree1.left, tree2.left) && isSameTree(tree1.right, tree2.right);
+}
+
+function subtreeOfAnotherTree(root, subRoot){
+    if(!root) return false;
+    isSameTree(root, subRoot) || subtreeOfAnotherTree(root.left, subRoot) || subtreeOfAnotherTree(root.right, subRoot)
+}
+
+//invert binary tree
+
+function invertBinaryTree(tree){
+    if(tree === null) return null;
+    return new Node(tree.val, invertBinaryTree(tree.right), invertBinaryTree(tree.left))
+}
+
+//reconstruct binary tree from preorder and inorder traversal
+
