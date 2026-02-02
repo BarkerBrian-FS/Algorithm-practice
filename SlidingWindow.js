@@ -194,17 +194,26 @@ function subArraySum(arr, target){
 //Longest Substring without repeat
 
 function longest_substring_without_repeating_characters(s){
+    //longest string without repeat
     let longest = 0;
+    //make window to hold all indexes
     const window = new Set();
+    //make left pointer
     let l = 0;
+    //start moving window with for loop
     for(let right = 0; right <s.length; right++){
+        //check if index is already in window
         while(window.has(s[right])){
+            //delte chacter on left
             window.delete(s[l])
+            //move left pointer
             ++l
         }
+        //add new character on right
     window.add(s[right]);
-
+        //check against previous substring
     longest = Math.max(longest, right - l + 1)
     }
+    //return the answer
     return longest
 }
