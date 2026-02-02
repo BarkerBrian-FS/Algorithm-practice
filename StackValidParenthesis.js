@@ -33,3 +33,36 @@ function validParentheses(s) {
     }
     return stack.length === 0;
 }
+
+// 2 function palidrome for sentences
+//make function to test for alphanumeric char
+function isAlphanumeric(c){
+    return /^[a-zA-Z0-9]*$/.test(c);
+}
+
+function isPalindrome(s){
+    //start left at 0
+    let l = 0;
+    //start right at the end 
+    let r = s.length - 1;
+    // while left is less than right
+    while(l < r){
+        // while l less than right and left is not alphanumeric
+        while(l < r && !isAlphanumeric(s.charAt(l))){
+            l++;
+        }
+        // while l less than right and r is not alphanumeric
+        while(l < r && !isAlphanumeric(s.charAt(r))){
+            r--
+        }
+        // compare character at left and r lower cased if no match return false
+        if(s.charAt(l).toLowerCase() !== s.charAt(r).toLowerCase()){
+            return false
+        }
+        //move forward with comparing
+        l++
+        r--
+    }
+    // all letters match return true 
+    return true
+}
