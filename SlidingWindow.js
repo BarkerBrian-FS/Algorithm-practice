@@ -218,3 +218,29 @@ function longest_substring_without_repeating_characters(s){
     return longest
 }
 
+/*
+Best Time to Buy and Sell Stock
+Easy
+Given an array prices where prices[i] is the price of a given stock on day i, 
+find the maximum profit you can achieve. You may only complete one transaction (i.e., 
+buy one and sell one share of the stock).
+*/
+function maxProfit (prices){
+    //left is the day to buy 
+    let left = 0;
+    //tracks max profit found
+    let maxProfit = 0;
+    // right is the day to sell
+    for(let right = 1; right<prices.length; right++){
+        //found buyin price move buy day forward
+        if(prices[right] < prices[left]){
+            left = right
+        } else{
+            //selling today gives profit compare to max and keep max
+            maxProfit = Math.max(maxProfit, prices[right] - prices[left])
+        }
+    }
+    //return the highest profit found 
+    return maxProfit
+}
+
