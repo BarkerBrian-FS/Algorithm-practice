@@ -88,3 +88,23 @@ class Solution {
     }
   }
 }
+
+
+// Two Sum with Hash Map
+
+function twoSum(arr, target){
+    //create map 
+    const s = new Map();
+    //loop through array
+    for(let i = 0; i < arr.length; i++){
+        //see if arr has left over number to make target
+        if(s.has(target - arr[i])){
+            // return the number 
+            return [s.get(target-arr[i]), i]
+        }
+        //set it into the map 
+        s.set(arr[i], i)
+    }
+    //return null if no answer found
+    return null;
+}
