@@ -190,3 +190,21 @@ function subArraySum(arr, target){
     //return empty array if no answer found
     return []
 }
+
+//Longest Substring without repeat
+
+function longest_substring_without_repeating_characters(s){
+    let longest = 0;
+    const window = new Set();
+    let l = 0;
+    for(let right = 0; right <s.length; right++){
+        while(window.has(s[right])){
+            window.delete(s[l])
+            ++l
+        }
+    window.add(s[right]);
+
+    longest = Math.max(longest, right - l + 1)
+    }
+    return longest
+}
