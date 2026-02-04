@@ -76,3 +76,7 @@ function isPalindrome(x){
     //Odd digits x shoud equal reversedHalf without middle digit 
     return x === reversedHalf || x === Math.floor(reversedHalf / 10);
 }
+// string conversion if allowed 
+function stringConvert(x){
+    return x.toString() === x.toString().split('').reverse().join('')
+}
