@@ -34,7 +34,10 @@ function validParentheses(s) {
     return stack.length === 0;
 }
 
-// 2 function palidrome for sentences
+/*
+Given a string s, determine if it is a palindrome, 
+considering only alphanumeric characters and ignoring cases.
+*/
 //make function to test for alphanumeric char
 function isAlphanumeric(c){
     return /^[a-zA-Z0-9]*$/.test(c);
