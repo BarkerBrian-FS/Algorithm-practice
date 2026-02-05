@@ -143,3 +143,15 @@ function monotonic(arr){
     }
     return ans;
 }
+
+//Binary Tree DFS (recursive)
+function dfs(root){
+    if(!root) return null;
+
+    let ans = 0;
+    // do logic
+
+    dfs(root.left);
+    dfs(root.right);
+    return ans
+}
