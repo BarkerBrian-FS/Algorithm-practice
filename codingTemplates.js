@@ -113,3 +113,18 @@ function reverseList(head){
     }
     return prev;
 }
+
+//Find number os subarrays that fit criteria
+function subArray(arr, k){
+    let counts = new Map();
+    counts.set(0 , 1);
+    let ans = 0;
+    let curr = 0;
+
+    for(const num of arr){
+        //do logic to change curr
+        ans += counts.get(curr - k) || 0;
+        counts.set(curr,(counts.get(curr)||0)+1)
+    }
+    return ans;
+}
