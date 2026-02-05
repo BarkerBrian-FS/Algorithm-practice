@@ -40,3 +40,49 @@ function twoPointerTwoInput(arr1, arr2){
     }
     return ans
 }
+
+//sliding window
+
+function sliding (arr){
+    let left = 0;
+    let curr = 0;
+    let ans = 0;
+
+    for(let right = 0; right < arr.length; right++){
+        //do logic here to add arr[right] to curr
+
+        while(window_condition_broken){
+            //remvove arr[left] from curr
+            left++
+        }
+        //update ans
+    }
+    return ans;
+}
+
+//Build a prefix sum
+function prefixSum(arr){
+    let prefix = arr[0];
+    for(let i = 0; i < arr.length; i++){
+        prefix.push(prefix[prefix.length - 1]+ arr[i])
+    }
+    return prefix
+}
+
+//Efficient String Building
+//arr is list of characters
+function stringBuild(arr){
+    let ans = [];
+    for(const c of arr){
+        ans.push(c)
+    }
+    return ans.join('')
+}
+
+function stringHelp(arr){
+    let ans = '';
+    for(const c of arr){
+        ans += c
+    }
+    return ans
+}
