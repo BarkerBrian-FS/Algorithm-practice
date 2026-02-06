@@ -60,7 +60,7 @@ function isPalindrome(word){
 // Interview preferred mathematical solution number palidrome
 
 function numPalidrome(x){
-    if(x < 0 || (x % 10 === 0 && !== 0)) return false;
+    if(x < 0 || (x % 10 === 0 && x !== 0)) return false;
 
     let reversedHalf = 0;
 
