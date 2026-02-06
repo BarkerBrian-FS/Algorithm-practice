@@ -53,3 +53,19 @@ function validBst(root){
     }
     return dfs(root, Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY)
 }
+
+// move the zeroes 
+
+function moveZeroes(nums){
+    let lastNonZero = 0;
+
+    for(let i = 0; i < nums.length; i++){
+        if(nums[i] !== 0){
+            nums[lastNonZero] = nums[i];
+            lastNonZero++
+        }
+    }
+    for(let i = lastNonZero; i < nums.length; i++){
+        nums[i] = 0;
+    }
+}
