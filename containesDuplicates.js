@@ -13,6 +13,27 @@ function containsDuplicates(nums){
     return false
 }
 
+//contains duplicates 2
+function containsDupesTwo(nums, k){
+    //make a map to store values 
+    const lastSeen = new Map();
+    //iterate through nums 
+    for(let i = 0; i < nums.length; i++){
+        //check if nums is in the map
+        if(lastSeen.has(nums[i])){
+            //check if current index with last to if less than K 
+            if(i - lastSeen.get(nums[i])<= k){
+                //SUCCESS
+                return true;
+            }
+        }
+        //update last seen index to current position
+        lastSeen.set(nums[i], i )
+    }
+    //made it through return false
+    return false;
+}
+
 //twoSum
 function twoSum(nums, target){
     let map = new Map();
