@@ -41,3 +41,21 @@ function majorityElement(nums){
         }
     }
 }
+
+//Single Number
+function singleNumber(nums){
+    //stores number and frequency it occurs
+    const counts = new Map();
+    //iterates though nums
+    for(const num of nums){
+        //sets number to 0 or adds 1 if already 0
+        counts.set(num(counts.get(num)||0) +1)
+    }
+    // iterate through map entries returns array of key value
+    for(const [num, count] of counts.entries()){
+        //if equal to 1 return it 
+        if(count === 1){
+            return num 
+        }
+    }
+}
