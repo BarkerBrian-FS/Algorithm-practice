@@ -53,3 +53,40 @@ function reverseList(head){
     return prev
 }
 
+//Merge 2 sorted lists
+/*
+You are given the heads of two sorted linked lists list1 and list2.
+Merge the two lists into one sorted list. The list should be made 
+by splicing together the nodes of the first two lists.
+Return the head of the merged linked list.
+*/
+
+function mergeTwoLists(list1, list2){
+    //create dummy node for merging
+    let dummy = new ListNode(0);
+    let current = dummy;
+
+    while(list1 !== null && list2 !== null){
+        if(list1.val < list2.val){
+            //attach list1 node
+            current.next = list1;
+            //move list1 forward
+            list1 = list1.next;
+        } else {
+            //attach list2 node
+            current.next = list2;
+            //move list2 forward
+            list2 = list2.next;
+        }
+        //move current forward
+        current = current.next;
+    }
+    //attach remaining node if any 
+    if(list1 !== null){
+        current.next = list1;
+    } else if(list2 !== null){
+        current.next = list2;
+    }
+    //return the merged list starting after dummy
+    return dummy.next;
+}
