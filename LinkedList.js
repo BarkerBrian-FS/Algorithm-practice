@@ -90,3 +90,53 @@ function mergeTwoLists(list1, list2){
     //return the merged list starting after dummy
     return dummy.next;
 }
+
+//Reorder list
+/*
+You are given the head of a singly linked-list. 
+The list can be represented as:
+
+L0 → L1 → … → Ln - 1 → Ln
+Reorder the list to be on the following form:
+
+L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
+You may not modify the values in the list's nodes. 
+Only nodes themselves may be changed.
+*/
+
+function reorderList(head){
+    if(!head || !head.next) return;
+    //Step 1 find middle of list
+    let slow = head;
+    let fast = head;
+    //when fast is at end slow is at middle 
+    while(fast.next && fast.next.next){
+        slow = slow.next;
+        fast = fast.next.next
+    }
+    //step 2 reverse second half
+    //reverse starting at slow.next
+    let prev = null;
+    let curr = slow.next;
+    slow.next = null;
+    while(curr){
+        let nextTemp = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = nextTemp
+    }
+    //step 3 merge the two halves
+    //aternate between nodes from first and second halves
+    let first = head;
+    let second = prev;
+    while(second){
+        let tmp1 = first.next;
+        let tmp2 = second.next;
+
+        first.next = second;
+        second.next = tmp1;
+
+        first = tmp1;
+        second = tmp2
+    }
+}
