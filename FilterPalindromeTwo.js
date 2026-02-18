@@ -70,3 +70,30 @@ function numPalidrome(x){
     }
     return x === reversedHalf || x === Math.floor(reversedHalf / 10);
 }
+
+//Is palindrome with alpha num
+function isPalindrome(s){
+    //left pointer at start
+    let left = 0;
+    //right pointer at end
+    let right = s.length - 1;
+
+    while(left < right){
+        //move left pointer to next alphanum char
+        while(left < right && !isAlphaNumeric(s[left]))left++;
+        //mvoe right pointer to next alphanum char
+        while(left < right && !isAlphaNumeric(s[right]))right--;
+        //compare chars ignoring case
+        if(s[left].toLowerCase() !== s[right].toLowerCase()){
+            return false;
+        }
+        left++;
+        right--;
+    }
+    //is palindrome
+    return true;
+}
+//helper function to check char is alphanum
+function isAlphaNumeric(c){
+    return /^[a-z0-9]$/i.test(c);
+}
