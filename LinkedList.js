@@ -27,3 +27,29 @@ function hasCycle(head){
 
 
 
+//Reverse Linked List
+/*
+Given the head of a singly linked list, 
+reverse the list, and return the reversed list.
+*/
+
+function reverseList(head){
+    //End will be new head
+    let prev = null;
+    //start from original head
+    let current = head;
+    //loop while current not null
+    while(current !== null){
+        //save the next node
+        let next = current.next;
+        //reverse the link
+        current.next = prev;
+        //move prev forward
+        prev = current;
+        //move current forward
+        current = next
+    }
+    //prev is the new head after loop
+    return prev
+}
+
