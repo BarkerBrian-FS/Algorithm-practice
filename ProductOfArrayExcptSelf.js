@@ -35,3 +35,28 @@ function runningSum(){
     //return the final array
     return runningSumArr;
 }
+
+//Maximum / Minimum Subarray / Window
+
+function maxMinSubArr(nums, k){
+    let n = nums.length;
+    //edge case length smaller than provided window
+    if(n < k) return null;
+
+    let windowSum = 0;
+    //compute sum of first window
+    for(let i = 0; i < k; i++){
+        windowSum += nums[i];
+    }
+    //set max to current window
+    let maxSum = windowSum;
+    //move window forward
+    for(let i = k; i < n; i++){
+        //calculate new window sum
+        windowSum += nums[i] - nums[ i-k ];//add new element remove oldest
+        //check which is larger
+        maxSum = Math.max(maxSum, windowSum)
+    }
+    //return largest
+    return maxSum;
+}
