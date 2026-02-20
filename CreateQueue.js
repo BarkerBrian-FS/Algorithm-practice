@@ -48,4 +48,9 @@ class Queue{
     isEmpty(){
         return this.size === 0;
     }
+    clear(){
+        this.front = null;
+        this.back = null;
+        this.size = 0;
+    }
 }
