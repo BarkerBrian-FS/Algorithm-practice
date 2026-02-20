@@ -41,6 +41,16 @@ class LinkedList{
         prev.next = new LinkedListNode(value, prev.next)
         this.length++
     }
+    removeAtIndex(index){
+        if(index === 0)return this.removeHead(value)
+
+        const prev = this.getByIndex(index - 1)
+        if( prev === null) return null
+
+        prev.next = prev.next.next;
+        this.length--;
+        
+    }
 }
 
 class LinkedListNode{
