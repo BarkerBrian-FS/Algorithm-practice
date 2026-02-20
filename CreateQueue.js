@@ -42,4 +42,7 @@ class Queue{
         this.size = this.size - 1;
         return prevFront.value;
     }
+    peek(){
+        return this.front ? this.front.value: null;
+    }
 }
