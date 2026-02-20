@@ -45,4 +45,7 @@ class Queue{
     peek(){
         return this.front ? this.front.value: null;
     }
+    isEmpty(){
+        return this.size === 0;
+    }
 }
