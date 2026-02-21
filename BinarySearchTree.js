@@ -4,11 +4,14 @@ Given the root of a binary tree, invert the tree,
 and return its root.
 */
 
-function inverTree(root){
+function invertTree(root){
+    //base case for empty tree
     if(!root) return null;
 
+    //destructure to swap left and right roots
     [root.left, root.right] = [root.right, root.left];
 
+    //recursively call function for left and right
     invertTree(root.left);
     invertTree(root.right);
 
