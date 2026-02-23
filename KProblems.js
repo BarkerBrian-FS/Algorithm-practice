@@ -10,3 +10,25 @@ function topK(nums, k){
     //Step 3 return top k sorted elements 
     return sorted.slice(0 , k).map(Number)
 }
+
+//Kth Largest Element in a Stream
+/*
+Design a class to find the kth largest integer in a stream of values, 
+including duplicates. E.g. the 2nd largest from [1, 2, 3, 3] is 3. 
+The stream is not necessarily sorted.
+*/
+class kthLargest{
+    constructor(k, nums){
+        this.k = k;
+        this.nums = nums.sort((a,b) => b - a);
+    }
+
+    add(val){
+        let i = 0;
+        while(i < this.nums.length && this.nums[i] > val){
+            i++
+        }
+        this.nums.splice(i, 0, val);
+         return this.nums[this.k - 1];
+    }
+}
