@@ -69,3 +69,15 @@ function slidingWindowSum(nums, k){
     return result
 }
 
+//kth length substring 
+function kLengthSub(s, k){
+    //store substrings
+    const result = [];
+    //loop through array - k ensures substring of size k fits
+    for(let i = 0;  i <= s.length-k; i++){
+        //get substring startign at i and ending at k and save
+        result.push(s.slice(i, i+k));
+    }
+    //return result
+    return result
+}
