@@ -58,10 +58,12 @@ function slidingWindowSum(nums, k){
     let windowSum = 0;
 
     for(let i =0; i < nums.length; i++){
+        //add element to sum
         windowSum += nums[i];
     }
     if(i >= k -1){
         result.push(windowSum);
+        //remove element exiting window
         windowSum -= nums[ i - k + 1]
     }
     return result
