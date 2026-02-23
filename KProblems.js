@@ -32,3 +32,22 @@ class kthLargest{
          return this.nums[this.k - 1];
     }
 }
+
+//K closest points to origin 
+/*
+You are given an 2-D array points where points[i] = [xi, yi] represents the coordinates of a point on an X-Y axis plane. You are also given an integer k.
+Return the k closest points to the origin (0, 0).
+The distance between two points is defined as the Euclidean distance (sqrt((x1 - x2)^2 + (y1 - y2)^2)).
+You may return the answer in any order.
+*/
+function kClosest(points, k){
+    //compute the distance 
+    function distanceSquared(point){
+        const[x,y] = point;
+        return x*x + y*y;
+    }
+    //sort distances with closes coming first
+    points.sort((a,b) => distanceSquared(a) - distanceSquared(b));
+    //return k points
+    return points.slice(0, k);
+}
