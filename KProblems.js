@@ -51,3 +51,19 @@ function kClosest(points, k){
     //return k points
     return points.slice(0, k);
 }
+
+//Sum of fixed window of size k
+function slidingWindowSum(nums, k){
+    const result = [];
+    let windowSum = 0;
+
+    for(let i =0; i < nums.length; i++){
+        windowSum += nums[i];
+    }
+    if(i >= k -1){
+        result.push(windowSum);
+        windowSum -= nums[ i - k + 1]
+    }
+    return result
+}
+
