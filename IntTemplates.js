@@ -76,3 +76,14 @@ function dfs(root){
     dfs(root.right);
 }
 
+//DFS template (Graph)
+function dfs(node, visited, graph){
+    if(visited.has(node)) return;
+
+    visited.add(node);
+
+    for(let neighbor of graph[node]){
+        dfs(neighbor, visited, graph);
+    }
+}
+
