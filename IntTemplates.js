@@ -104,3 +104,16 @@ function bfs(start, graph){
     }
 }
 
+//Backtracking template
+function backTracking(start, path, nums, result){
+    result.push([...path]);
+
+    for(let i = start; i < nums.length; i++){
+        path.push(nums[i]);
+
+        backTracking(i + 1, path, nums, result);
+
+        path.pop()
+    }
+}
+
