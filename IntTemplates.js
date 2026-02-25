@@ -126,3 +126,15 @@ function prefixSum(nums){
     }
     return prefix;
 }
+
+//Monotonic Stack template
+function monotonicStack(nums){
+    const stack = [];
+
+    for(let i = 0; i < nums.length; i++){
+        while(stack.length && nums[i] > nums[stack[stack.length - 1]]){
+            stack.pop()
+        }
+        stack.push(i)
+    }
+}
