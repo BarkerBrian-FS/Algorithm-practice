@@ -117,3 +117,12 @@ function backTracking(start, path, nums, result){
     }
 }
 
+//Prefix sum template
+function prefixSum(nums){
+    const prefix = [0];
+
+    for(let i = 0; i < nums.length; i++){
+        prefix[i + 1] = prefix[i] + nums[i];
+    }
+    return prefix;
+}
