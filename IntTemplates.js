@@ -178,3 +178,39 @@ function dfs(grid, r, c){
     dfs(grid, r, c + 1);
     dfs(grid, r, c - 1);
 }
+
+//Bucket Sort Top K frequent
+//top k frequent elements
+//Sort chars by freq
+//Bucket sort nums
+//Freq Sort string
+//Find Most Common Elements
+function topKfreq(nums, k){
+    const freqMap = new Map();
+    //step 1 count frequency 
+    for(const n of nums){
+        freqMap.set(num,(freqMap.get(num)||0)+1)
+    }
+    //step 2 create buckets
+    const buckets = Array.from(
+        {length: nums.length+1},
+        ()=>[]
+    )
+    //step 3 fill the buckets
+    for(const [num, freq] of freqMap){
+        buckets[freq].push(num)
+    }
+
+    const result = [];
+    //step 4 collect the top k 
+    for(let i = buckets.length -1; i >= 0 && result.length < k; i--){
+        for(const num of buckets[i]){
+            result.push(num);
+
+            if(result.length === k){
+                return result;
+            }
+        }
+    }
+    return result;
+}
