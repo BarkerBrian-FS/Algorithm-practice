@@ -1,4 +1,8 @@
 //Hashmap Template
+//two sum
+//longest substring
+//contains duplicates
+//freq counting
 function example(nums){
     const map = new Map();
 
@@ -9,4 +13,21 @@ function example(nums){
         map.set(nums[i] , i)
     }
     return false
+}
+
+//Two pointers template
+//Palindrome
+//sorted arrays
+//pair problems
+function twoPointers(arr){
+    let left = 0;
+    let right = arr.length -1;
+
+    while(left < right){
+        if(condition){
+            left++
+        } else{
+            right--
+        }
+    }
 }
