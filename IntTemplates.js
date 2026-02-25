@@ -31,3 +31,20 @@ function twoPointers(arr){
         }
     }
 }
+
+//Sliding Window Template
+//longest substring
+//subarray sum
+//fixed variable window
+function slidingWindow(arr){
+    let left = 0;
+    let result = 0;
+
+    for(let right = 0; right < arr.length; right++){
+        while(windowInvalid){
+            left++
+        }
+        result = Math.max(result, right - left + 1)
+    }
+    return result
+}
