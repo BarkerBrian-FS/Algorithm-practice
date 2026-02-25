@@ -67,3 +67,12 @@ function binarySearch(arr, target){
     }
     return -1
 }
+
+//DFS template (Tree)
+function dfs(root){
+    if(!root) return;
+
+    dfs(root.left);
+    dfs(root.right);
+}
+
