@@ -25,3 +25,22 @@ function buyAndSell(prices){
     //return the answer
     return maxProfit;
 }
+
+//concise answer
+function buyAndSellStock(prices){
+    //set to infinity so all numbers smaller
+    let minPrice = Infinity;
+    let maxProf = 0;
+    //loop through prices
+    for(let price of prices){
+        //check against min
+        if(price < minPrice){
+            //swap if less
+            minPrice = price
+        } else {
+            //find max profit 
+            maxProf = Math.max(maxProf, price - minPrice)
+        }
+    }
+    return maxProf
+}
