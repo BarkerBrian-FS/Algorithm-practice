@@ -143,3 +143,30 @@ function threeSum(nums){
     }
     return res
 }
+
+
+//Two Interget Sum 2
+
+function twoIntSum(numbers, target){
+    //make pointers at opposite ends
+    let left = 0;
+    let right = numbers.length - 1;
+    //while left is less than right
+    while(left < right){
+        //add numbers at pointers
+        const sum = number[left] + numbers[right];
+        //if the sum = target return 
+        if(sum === target){
+            //make pointers 1 indexed
+            return [left + 1, right + 1]
+            //if sum is less increase left
+        } else if(sum < target){
+            left++
+            //if sum is more decrease right
+        } else {
+            right--
+        }
+    }
+    //return array upon failure
+    return [];
+}
