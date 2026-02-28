@@ -40,3 +40,30 @@ function groupAnagrams(strs){
   }
   return Array.from(map.values())
 }
+
+//advanced group anagrams
+function groupAnagrams(strs){
+  const map = new Map();
+
+  for(const word of strs){
+    //create freq array for 26 letters
+    const count = new Array(26).fill(0);
+
+    //loop through words and create character code
+    for(const char of word){
+      count[char.charCodeAt(0) -97]++;
+    }
+    //convert to string key
+    const key = count.join(',');
+
+    //check if map doesnt have key
+    if(!map.has(key)){
+      //set key in map 
+      map.set(key, []);
+    }
+    //push word to corresponding key
+    map.get(key).push(word)
+  }
+  //make an array from the map 
+  return Array.from(map.values());
+}
