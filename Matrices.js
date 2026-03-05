@@ -147,3 +147,35 @@ const matrix = [
 
 const traversal = verticalTraverseFromBottomRight(matrix);
 console.log(traversal.join(" "));
+
+//reverse transposition
+
+function transformMatrixReverse(matrix) {
+    const rows = matrix.length;
+    const cols = rows > 0 ? matrix[0].length : 0;
+    const transposed = [];
+
+    for (let i = cols - 1; i >= 0; i--) { // start from last column
+        const newRow = [];
+        for (let j = 0; j < rows; j++) {
+            newRow.push(matrix[j][i]); // take element from original matrix
+        }
+        transposed.push(newRow);
+    }
+
+    return transposed;
+}
+
+// Example matrix
+let originalMatrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+
+let newMatrix = transformMatrixReverse(originalMatrix);
+
+// Print the result
+for (let row of newMatrix) {
+    console.log(row.join(" "));
+}
