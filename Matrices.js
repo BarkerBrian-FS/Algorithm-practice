@@ -27,7 +27,7 @@ for(let row of transformedMatrix){
     console.log(row.join(" "))
 }
 
-
+// traversal 
 function traverseLibrary(library) {
     let row = library.length - 1;
     let col = 0;
@@ -57,3 +57,38 @@ function traverseLibrary(library) {
     return result;
 }
 
+
+//zigzag traversal 
+
+function columnTraverse(matrix) {
+    const rows = matrix.length;
+    const cols = matrix[0].length;
+    let row = rows - 1;
+    let col = cols - 1;
+    let direction = "up";
+    const output = [];
+    let index = 0;
+
+    while (index < rows * cols) {
+        output[index++] = matrix[row][col];
+
+        if (direction === "up") {
+            if (row === 0) {
+                direction = "down";
+                col -= 1;        // move left to next column
+            } else {
+                row -= 1;
+            }
+        } 
+        else if (direction === "down") {
+            if (row === rows - 1) {
+                direction = "up";
+                col -= 1;        // move left to next column
+            } else {
+                row += 1;
+            }
+        }
+    }
+
+    return output;
+}
