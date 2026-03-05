@@ -179,3 +179,37 @@ let newMatrix = transformMatrixReverse(originalMatrix);
 for (let row of newMatrix) {
     console.log(row.join(" "));
 }
+
+
+//transpose 2d array
+
+// Function to transpose a 2D array (rows ↔ columns)
+function transposeSeating(matrix) {
+    const rows = matrix.length;
+    const cols = matrix[0].length;
+    const transposed = [];
+
+    for (let col = 0; col < cols; col++) {
+        transposed[col] = [];
+        for (let row = 0; row < rows; row++) {
+            transposed[col][row] = matrix[row][col];
+        }
+    }
+
+    return transposed;
+}
+
+// Restaurant seating before transposition (rows)
+let seatingBefore = [
+    [1, 2],
+    [3, 4],
+    [5, 6]
+];
+
+// Call the function and store the result
+let seatingAfter = transposeSeating(seatingBefore);
+
+// Print the transposed seating arrangement
+for (let row of seatingAfter) {
+    console.log(row.join(" "));
+}
