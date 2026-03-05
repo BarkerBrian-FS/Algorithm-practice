@@ -28,3 +28,32 @@ for(let row of transformedMatrix){
 }
 
 
+function traverseLibrary(library) {
+    let row = library.length - 1;
+    let col = 0;
+    let goingUp = true;
+    const result = [];
+
+    while (col < library[0].length) {
+        result.push(library[row][col]);
+
+        if (goingUp) {
+            if (row == 0) {
+                goingUp = false;   // change direction
+                col += 1;
+            } else {
+                row -= 1;
+            }
+        } else {
+            if (row == library.length - 1) {
+                goingUp = true;   // change direction
+                col += 1;
+            } else {
+                row += 1;
+            }
+        }
+    }
+
+    return result;
+}
+
