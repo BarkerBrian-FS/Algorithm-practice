@@ -92,3 +92,29 @@ function columnTraverse(matrix) {
 
     return output;
 }
+
+//vertical traversal
+
+function verticalTraverse(matrix) {
+    if (matrix.length === 0 || matrix[0].length === 0) {
+        return [];
+    }
+
+    const rows = matrix.length;
+    const cols = matrix[0].length;
+    const result = [];
+
+    for (let col = 0; col < cols; col++) {
+        if (col % 2 === 0) { // even column → top to bottom
+            for (let row = 0; row < rows; row++) {
+                result.push(matrix[row][col]);
+            }
+        } else { // odd column → bottom to top
+            for (let row = rows - 1; row >= 0; row--) {
+                result.push(matrix[row][col]);
+            }
+        }
+    }
+
+    return result;
+}
