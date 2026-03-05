@@ -118,3 +118,32 @@ function verticalTraverse(matrix) {
 
     return result;
 }
+
+
+//vertical traversal starting at bottom right
+
+function verticalTraverseFromBottomRight(matrix) {
+    if (matrix.length === 0 || matrix[0].length === 0) return [];
+
+    const rows = matrix.length;
+    const cols = matrix[0].length;
+    const result = [];
+
+    for (let col = cols - 1; col >= 0; col--) {
+        for (let row = rows - 1; row >= 0; row--) {
+            result.push(matrix[row][col]);
+        }
+    }
+
+    return result;
+}
+
+// Example
+const matrix = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12]
+];
+
+const traversal = verticalTraverseFromBottomRight(matrix);
+console.log(traversal.join(" "));
