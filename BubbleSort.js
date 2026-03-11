@@ -11,6 +11,7 @@ function bubbleSort(arr){
         }
     } 
     } while(swapped);
+    return arr;
 }
 
 const arr = [8,20,-2,4,-6];
