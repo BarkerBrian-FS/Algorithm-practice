@@ -55,3 +55,16 @@ function walk(maze, wall, curr, end, seen, path){
     return false;
 }
 
+function solve(maze, wall, start, end){
+    const seen = [];
+
+    for(let i =0; i < maze.length; i++){
+        seen.push(new Array(maze[0].length).fill(false))
+    }
+
+    const path = [];
+
+    walk(maze, wall, start, end, seen, path);
+
+    return path;
+}
